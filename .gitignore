@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.manifest
+.env
+.venv
+env/
+venv/
+
+# Streamlit
+.streamlit/
+
+# Google Cloud / Earth Engine
+.config
+credentials.json
+key.json
+
+# Image/Data output artifacts (Optional: remove if you WANT them in the repo)
+# growth_chart.png
+# map.html
+# We keep image.png as requested for the README
