@@ -1,32 +1,36 @@
-# 🛰️ Karabakh Post-Conflict Reconstruction Monitor
+# 🛰️ Satellite Urban Reconstruction Monitor
 
-A geospatial data science tool to quantify and visualize urban growth in the Karabakh region (Agdam/Fuzuli) from 2020 to 2024 using **Sentinel-2** satellite imagery and **Google Dynamic World** AI.
+A geospatial data science tool designed to quantity and visualize post-conflict urban development **anywhere in the world**.
+
+While this project currently uses the **Karabakh region (Agdam/Fuzuli)** as a primary case study to demonstrate its capabilities, the code is modular and can be adapted to monitor reconstruction or urbanization in any geographic Region of Interest (ROI).
 
 ![Project Screenshot](image.png)
+*(Screenshot demonstrating analysis on Fuzuli City)*
 
-## 📊 Project Overview
-This tool automates the monitoring of post-conflict reconstruction by:
-1.  **Ingesting Sentinel-2 Imagery**: Filtering for cloud-free summer composites.
-2.  **AI Land Cover Analysis**: Using Google's "Dynamic World" model (~10m resolution) to detect built-up areas.
-3.  **Time-Series Tracking**: Calculating total urban area (km²) for each year since 2020.
-4.  **Interactive Dashboard**: A Streamlit app with Split-Map comparison (Before/After) and change detection.
+## 📊 How it Works
+The application processes Sentinel-2 satellite imagery and applies the **Google Dynamic World** AI model to detect built-up surface materials (concrete, asphalt, buildings).
+
+### Visualization Guide (The Map)
+When using the interactive dashboard, the split-map shows:
+*   🟡 **Yellow Overlay**: Infrastructure that already existed in the baseline year (e.g., 2020).
+*   🔴 **Red Overlay**: **New Construction** detected in the comparison year (e.g., 2024).
+*   **Slider**: Drag the slider left/right to compare the "Before" and "After" views.
 
 ## 🛠️ Tech Stack
 *   **Python 3.9+**
-*   **Google Earth Engine (GEE)**: Cloud-based geospatial processing.
-*   **Streamlit**: Interactive web dashboard.
-*   **Geemap**: Interactive mapping integration.
-*   **Pandas/Matplotlib**: Data analysis and charting.
+*   **Google Earth Engine (GEE)**: Processing 50+ petabytes of satellite data in the cloud.
+*   **Streamlit**: For the interactive web interface.
+*   **Geemap**: For map rendering and layer management.
 
 ## 🚀 How to Run Locally
 
 ### 1. Prerequisites
 *   Python installed.
-*   A Google Earth Engine account (free for research).
+*   A Google Earth Engine account.
 
 ### 2. Installation
 ```bash
-git clone https://github.com/YOUR_USERNAME/karabakh-monitor.git
+git clone https://github.com/elvinvaliyev/karabakh-monitor.git
 cd karabakh-monitor
 pip install -r requirements.txt
 ```
@@ -54,11 +58,7 @@ This project includes a `Dockerfile` for deployment to Google Cloud Run.
 1.  **Build**: `gcloud builds submit --tag gcr.io/YOUR_PROJECT_ID/karabakh-monitor .`
 2.  **Deploy**: `gcloud run deploy --image gcr.io/YOUR_PROJECT_ID/karabakh-monitor --platform managed`
 
-## 📈 Results (Example)
-*   **Agdam/Fuzuli Area**:
-    *   2020 (Baseline): ~1440 km²
-    *   2023 (Peak Construction): ~1770 km²
-    *   *Growth detected in road networks and new settlements.*
-
-## 📜 License
-MIT
+## 📈 Case Study: Karabakh
+This repository includes a default configuration for monitoring the Agdam and Fuzuli regions of Azerbaijan.
+*   **Rapid Growth**: Significant increase in built-up area observed in Agdam and Fuzuli sectors starting from 2021.
+*   **Road Networks**: Integration of new major highways is clearly visible in the 2023-2024 timeframe.
